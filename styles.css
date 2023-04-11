@@ -1,0 +1,46 @@
+.filter-hover {
+  position: relative;
+  cursor: pointer;
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+}
+
+.filter-hover::after,
+.filter-hover::before {
+  position: absolute;
+  left: 0rem;
+  top: 0rem;
+  z-index: -1;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  content: '';
+}
+
+.filter-hover::before {
+  --un-bg-opacity: 1;
+  background-color: rgba(0, 0, 0, var(--un-bg-opacity));
+}
+
+.filter-hover::after {
+  margin-left: -12px;
+  margin-top: -12px;
+  width: 24px;
+  height: 24px;
+  left: 50%;
+  top: 50%;
+  background: url('./zoom-in.png') no-repeat fixed center;
+  background-size: cover;
+}
+
+.filter-hover:hover::before {
+  z-index: 2;
+  opacity: 0.3;
+}
+
+.filter-hover:hover::after {
+  z-index: 4;
+  opacity: 1;
+}
